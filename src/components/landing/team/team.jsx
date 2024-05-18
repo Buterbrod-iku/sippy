@@ -1,5 +1,10 @@
 import style from './team.module.scss'
 import Person from "@/components/landing/team/person/person";
+import ilya from '@/../public/image/developers/Ilya.jpg'
+import dmitry from '@/../public/image/developers/Dmitry.jpg'
+import miha from '@/../public/image/developers/miha.jpg'
+import nikita from '@/../public/image/developers/nikita.jpg'
+import valera from '@/../public/image/developers/valera.jpg'
 
 const Team = () => {
     return (
@@ -12,11 +17,11 @@ const Team = () => {
 
 
             <div className={style.posPerson}>
-                <Person name={"Мелков Илья"} type={"Frontend developer"} stack={"Next, React, TS, SCSS, Python"}/>
-                <Person name={"Шипугин Никита"} type={"Fullstack developer"} stack={"Next, React, TS, SCSS, Python"}/>
-                <Person name={"Толматов Дмитрий"} type={"IOS developer"} stack={"Swift"}/>
-                <Person name={"Ангальдт Михаил"} type={"Android developer"} stack={"Kotlin"}/>
-                <Person name={"Порошин Валерий"} type={"Backend developer"} stack={"PHP, Laravel"}/>
+                <Person name={"Мелков Илья"} type={"Frontend developer"} stack={"Next, React, TS, SCSS, Python"} img={ilya.src} href={"https://t.me/setInterval_iku"}/>
+                <Person name={"Шипугин Никита"} type={"Fullstack developer"} stack={"Next, React, TS, SCSS, Figma"} img={nikita.src} href={"https://t.me/absent_today"}/>
+                <Person name={"Толматов Дмитрий"} type={"IOS developer"} stack={"Swift, UI/UX"} img={dmitry.src} href={"https://t.me/incandesc3nce"}/>
+                <Person name={"Ангальдт Михаил"} type={"Android developer"} stack={"Kotlin, Jetpack Compose"} img={miha.src} href={"https://t.me/za1nds"}/>
+                <Person name={"Порошин Валерий"} type={"Backend developer"} stack={"PHP, Laravel, Postgres"} img={valera.src} href={"https://t.me/b6dbde"}/>
             </div>
         </div>
     );

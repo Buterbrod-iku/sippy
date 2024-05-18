@@ -12,7 +12,7 @@ const Download = () => {
         <div className={style.main}>
             <div className={style.posTitle}>
                 <h2>Sippy</h2>
-                <p>Приложение, которое помогает находить людей для совместного время препровождения по интересам</p>
+                <p>Приложение, которое помогает находить людей для совместного ч по интересам</p>
             </div>
 
             <div className={style.posBlock}>
