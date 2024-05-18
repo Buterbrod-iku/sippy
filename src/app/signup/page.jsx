@@ -8,14 +8,15 @@ import {useFetching} from "@/components/utils/hooks/useFetching";
 import Profile from "@/API/profile";
 
 function delKey(obj) {
+    let result = {...obj}
     const fields = ['name', 'password']
-    let objKeys = Object.keys(obj)
+    let objKeys = Object.keys(result)
     objKeys.forEach(function(item) {
         if (fields.indexOf(item) === -1) {
-            delete obj[item]
+            delete result[item]
         }
     })
-    return obj
+    return result
 }
 
 const Page = () => {
@@ -29,17 +30,15 @@ const Page = () => {
         await fetchSendReg(reg)
 
         await fetchSendAuth(delKey(reg))
+        console.log(reg)
     }
     const [fetchSendReg, isLoading, error] = useFetching(async (query) => {
         await Profile.sendNewUser(query)
-        console.log("YEEES")
-        console.log(delKey(reg))
     })
     const [fetchSendAuth, isLoadingAuth, errorAuth] = useFetching(async (query) => {
         let response = await Profile.sendAuth(query)
 
         setToken(response.data)
-        console.log('hello')
     })
 
     return (
@@ -56,6 +55,9 @@ const Page = () => {
                     <InputForLogin text={"О себе"} type={"textarea"} name={"about_me"} change={(event) => onChangeLogin(event, reg, setReg)}/>
                 </div>
 
+                {
+                    error ? <p style={{color: "red"}}>{error}</p> : null
+                }
                 <button className={style.button} onClick={send}>Зарегистрироваться</button>
                 <p className={style.aside}>У вас уже есть аккаунт? <Link href={"/login"} className={style.Link}>Авторизируйтесь</Link></p>
             </div>
