@@ -16,9 +16,9 @@ const Download = () => {
             </div>
 
             <div className={style.posBlock}>
-                <BlockDownload ico={android} text={"на Android"} download={true}/>
-                <BlockDownload ico={ios} text={"на IOS"} download={true}/>
-                <BlockDownload ico={windows} text={"Web-версия"} download={false}/>
+                <BlockDownload ico={android} text={"на Android"} download={true} href={"/login"}/>
+                <BlockDownload ico={ios} text={"на IOS"} download={true} href={"/login"}/>
+                <BlockDownload ico={windows} text={"Web-версия"} download={false} href={"/login"}/>
             </div>
 
             <div className={style.posImage}>

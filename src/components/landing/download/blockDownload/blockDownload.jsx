@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BlockDownload = ({ico, text, download, href}) => {
     return (
-        <Link href={href}>
+        <Link href={href} className={style.Link}>
             <div className={style.main}>
                 <Image src={ico} alt={"asd"}/>
                 <div>
