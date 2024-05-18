@@ -1,13 +1,13 @@
+"use client"
 import style from './pointMenu.module.scss'
 import Link from "next/link";
+import {handleClickScrollUp} from "@/components/utils/handleScroll";
 
 const PointMenu = ({text, href}) => {
     return (
-        <Link href={href} className={style.Link}>
-            <div className={style.main}>
-                {text}
-            </div>
-        </Link>
+        <div className={style.main} onClick={() => handleClickScrollUp(href)}>
+            {text}
+        </div>
     );
 };
 

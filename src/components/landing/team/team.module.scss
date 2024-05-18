@@ -30,3 +30,14 @@
   padding: 0 5vw;
   margin-top: 3vh;
 }
+@media (max-width: 768px) {
+  .posPerson{
+    display: flex;
+    flex-direction: column;
+  }
+  .posText{
+    p{
+      width: 90%;
+    }
+  }
+}

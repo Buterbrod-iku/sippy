@@ -11,9 +11,9 @@ const Header = () => {
             </div>
 
             <div className={style.menu}>
-                <PointMenu text={"Скачать"} href={"/aaa"} />
-                <PointMenu text={"Описание"} href={"/aaa"} />
-                <PointMenu text={"Команда"} href={"/aaa"} />
+                <PointMenu text={"Скачать"} href={"home"} />
+                <PointMenu text={"Описание"} href={"main"} />
+                <PointMenu text={"Команда"} href={"about"} />
             </div>
         </div>
     );

@@ -26,8 +26,32 @@
 }
 .text{
   width: 80%;
-  font-size: 1.4em;
+  font-size: 1.3em;
   padding: 20px 10px 0 20px;
   text-align: justify;
   line-height: 1.6;
+}
+
+@media (max-width: 768px){
+  .block{
+    width: 90%;
+    flex-direction: column;
+  }
+  .Image{
+    width: 90%;
+    height: 100%;
+    margin: 0 30px;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .text{
+    width: 100%;
+    padding: 0;
+  }
+  #rev{
+    flex-direction: column-reverse;
+  }
 }

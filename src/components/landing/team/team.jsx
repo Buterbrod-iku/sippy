@@ -8,7 +8,7 @@ import valera from '@/../public/image/developers/valera.jpg'
 
 const Team = () => {
     return (
-        <div className={style.main}>
+        <div className={style.main} id={"about"}>
             <div className={style.posText}>
                 <h2>Команда</h2>
                 <p>Добро пожаловать в нашу команду! Мы - группа увлеченных людей, работающих вместе для достижения наших целей.

@@ -26,3 +26,16 @@
   justify-content: center;
   gap: 0 50px;
 }
+
+@media (max-width: 768px) {
+  .main{
+    flex-direction: column;
+    height: auto;
+  }
+  .posLogo{
+    left: 10px;
+  }
+  .menu{
+    flex-direction: column;
+  }
+}
