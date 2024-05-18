@@ -29,7 +29,7 @@ const Page = () => {
                 <h1>Авторизация</h1>
 
                 <div>
-                    <InputForLogin text={"E-mail"} type={"text"} name={"name"} change={(event) => onChangeLogin(event, auth, setAuth)}/>
+                    <InputForLogin text={"E-mail"} type={"text"} name={"email"} change={(event) => onChangeLogin(event, auth, setAuth)}/>
                     <InputForLogin text={"Пароль"} type={"password"} name={"password"} change={(event) => onChangeLogin(event, auth, setAuth)}/>
                 </div>
 

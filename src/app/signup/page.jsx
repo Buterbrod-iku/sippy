@@ -9,7 +9,7 @@ import Profile from "@/API/profile";
 
 function delKey(obj) {
     let result = {...obj}
-    const fields = ['name', 'password']
+    const fields = ['email', 'password']
     let objKeys = Object.keys(result)
     objKeys.forEach(function(item) {
         if (fields.indexOf(item) === -1) {
@@ -56,7 +56,7 @@ const Page = () => {
                 </div>
 
                 {
-                    error ? <p style={{color: "red"}}>{error}</p> : null
+                    error ? <p style={{color: "red", marginTop: "20px"}}>{error}</p> : null
                 }
                 <button className={style.button} onClick={send}>Зарегистрироваться</button>
                 <p className={style.aside}>У вас уже есть аккаунт? <Link href={"/login"} className={style.Link}>Авторизируйтесь</Link></p>
