@@ -1,0 +1,18 @@
+.main{
+  width: 300px;
+  height: 100px;
+  background: #282828;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: #b7b7b7;
+  border-radius: 20px;
+
+  img{
+    width: 60px;
+    height: 60px;
+    margin: 0 20px;
+  }
+}

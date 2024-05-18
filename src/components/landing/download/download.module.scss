@@ -1,0 +1,48 @@
+.main{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.posTitle{
+  width: 70vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.2em;
+  h2{
+    font-size: 2.5em;
+  }
+  p{
+    width: 40%;
+    margin-top: 20px;
+  }
+  img{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.posBlock{
+  width: 70vw;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: -50px;
+}
+
+.posImage{
+  position: absolute;
+  top: 5vh;
+  right: 15vw;
+
+  img{
+    width: auto;
+    height: 80vh;
+  }
+}

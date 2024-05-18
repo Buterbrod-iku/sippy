@@ -1,0 +1,28 @@
+.main{
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: right;
+  padding: 0 5vw;
+  position: relative;
+}
+.posLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100px;
+  position: absolute;
+  left: 40px;
+}
+.logo{
+  width: auto;
+  height: 80px;
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 50px;
+}
