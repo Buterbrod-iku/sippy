@@ -6,10 +6,34 @@ import {useFetching} from "@/components/utils/hooks/useFetching";
 import Profile from "@/API/profile";
 import {onChangeDefault, onChangeLogin} from "@/components/utils/formUtils/change";
 import Link from "next/link";
+import { useEffect, useMemo } from 'react';
+import axios from 'axios';
 
 const Page = () => {
     const [auth, setAuth] = useState({})
     const [token, setToken] = useState("")
+
+    // TODO: Перепроверить сохранение
+    useEffect(() => {
+        if (token) {
+          axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+          localStorage.setItem('token',token);
+          console.log("Token applied");
+        } else {
+          delete axios.defaults.headers.common["Authorization"];
+          localStorage.removeItem('token');
+          console.log("Token deleted");
+        }
+    }, [token]);
+    const contextValue = useMemo(
+        () => ({
+            token,
+            setToken,
+        }),
+        [token]
+    );
+
+
 
     const send = async (e) => {
         e.preventDefault()

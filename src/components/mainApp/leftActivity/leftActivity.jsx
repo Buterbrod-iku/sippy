@@ -2,6 +2,7 @@
 import style from './leftActivity.module.scss'
 import {useState} from "react";
 
+// а че лефт а не райт?
 const LeftActivity = () => {
     const [open, setOpen] = useState(true)
 

@@ -59,7 +59,7 @@ const Page = () => {
                     error ? <p style={{color: "red", marginTop: "20px"}}>{error}</p> : null
                 }
                 <button className={style.button} onClick={send}>Зарегистрироваться</button>
-                <p className={style.aside}>У вас уже есть аккаунт? <Link href={"/login"} className={style.Link}>Авторизируйтесь</Link></p>
+                <p className={style.aside}>У вас уже есть аккаунт? <Link href={"/login"} className={style.Link}>Авторизуйтесь</Link></p>
             </div>
         </div>
     );
