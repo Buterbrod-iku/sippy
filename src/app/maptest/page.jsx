@@ -62,12 +62,11 @@ const Page = () => {
     
     return (
         <div className={style.main}>
-            MAP TEST PAGE!
 
             {
                 error ? <p style={{color: "red", marginTop: "20px"}}>{error}</p> : null
             }
-            {/* <FilterBlock /> */}
+            <FilterBlock />
             <Map center={CENTER} points={allPoints} />
             <LeftActivity />
         </div>

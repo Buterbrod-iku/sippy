@@ -7,7 +7,7 @@ const Profile = ({close}) => {
 
             <div className={style.posProfile}>
                 <div className={style.avatar}></div>
-                <p>Мелков Илья</p>
+                <p>Игорь Питон</p>
             </div>
 
             <div className={style.posAbout}>
@@ -16,9 +16,9 @@ const Profile = ({close}) => {
             </div>
 
             <div className={style.posMainInfo}>
-                <LineInfo name={"E-mail"} text={"melkov@mail.ru"}/>
+                <LineInfo name={"E-mail"} text={"python@mail.ru"}/>
                 <LineInfo name={"Пол"} text={"Мужской"}/>
-                <LineInfo name={"Возраст"} text={"19"}/>
+                <LineInfo name={"Возраст"} text={"52"}/>
             </div>
 
             <div className={style.close} onClick={close}>+</div>

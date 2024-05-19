@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./topButtonInProflie.module.scss";
 
-const TopButtonInProflie = ({setProfile}) => {
+const TopButtonInProflie = ({setProfile, open}) => {
     return (
         <>
             <div className={style.profileButton} onClick={() => setProfile(old => !old)}

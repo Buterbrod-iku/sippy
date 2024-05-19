@@ -19,7 +19,7 @@ const LeftActivity = () => {
         <>
             <div className={style.close}
                  onClick={() => setOpen(old => !old)}
-                 style={!open ? {right: "-3%"} : {right: "23%"}}
+                 style={!open ? {right: "-3%"} : {right: "22%"}}
             >
                 {
                     open ? "Скрыть меню" : "Показать меню"
@@ -32,7 +32,7 @@ const LeftActivity = () => {
                 ) :
                     (
                         <>
-                            <TopButtonInProflie setProfile={setProfile}/>
+                            <TopButtonInProflie setProfile={setProfile} open={open}/>
 
                             <ContentInvite />
                         </>

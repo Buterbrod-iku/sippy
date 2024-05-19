@@ -21,7 +21,9 @@
 .avatar{
   width: 150px;
   height: 150px;
-  background: gray;
+  background-image: url("../../../../../public/image/developers/placeholder-man.png");
+  background-position: center;
+  background-size: cover;
   border-radius: 50%;
 }
 .posAbout{

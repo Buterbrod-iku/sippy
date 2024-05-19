@@ -14,9 +14,9 @@ const ContentInvite = () => {
                 </div>
 
                 <div className={style.listProfile}>
-                    <TileProfileInvite />
-                    <TileProfileInvite />
-                    <TileProfileInvite />
+                    <TileProfileInvite name={"Зайцев Матвей"}/>
+                    <TileProfileInvite name={"Хорошев Кирилл"}/>
+                    <TileProfileInvite name={"Екатерина Василькова"}/>
                 </div>
             </div>
         </div>
