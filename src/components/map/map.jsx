@@ -1,10 +1,11 @@
 "use client"
 import style from './map.module.scss'
 
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Popup, Marker } from 'react-leaflet';
 import { useMapEvents } from 'react-leaflet/hooks'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import L_Icons from "./L_Icons";
 
 import 'leaflet/dist/leaflet.css'
 
@@ -34,39 +35,23 @@ const Map = ({points, center}) => {
                 {
                     // В КОМПОНЕНТУ
                     points.map(point => 
-                        <CircleMarker key={point.id} center={[point.longitude, point.latitude]} radius={10} color="transparent" fillColor="blue" opacity={0.8}>
-                            <Popup class={style.popup}>
-                                <div class={style.popupDiv}>
-                                    {point.category_id}
-                                    Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>
-                                </div>
-                            </Popup>
-                        </CircleMarker>
+                        <CustomIconMarker key={point.id} pos={[point.longitude, point.latitude]} _color="blue" popup_content={point.category_id}/>
+                            
                     )
                 }
                 {
                     // В КОМПОНЕНТУ X2 (ЭТО ГЕО)
-                    (locationPoint.latitude == 0 && locationPoint.longitude == 0) ? "" : <CircleMarker center={[locationPoint.latitude, locationPoint.longitude]} radius={22} color="transparent" fillColor="red" opacity={1}>
-                        <Popup class={style.popup}>
-                            <div class={style.popupDiv}>
-                                Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>
-                            </div>
-                        </Popup>
-                    </CircleMarker> 
+                    (locationPoint.latitude == 0 && locationPoint.longitude == 0) ? "" : 
+                    <CustomCircleMarker pos={[locationPoint.latitude, locationPoint.longitude]} _color="red" popup_content="GEO"/>
                     
                 }
                     
                 {
                     // В КОМПОНЕНТУ X3 (ЭТО ПО КЛИКУ)
-                    (clickPoint.latitude == 0 && clickPoint.longitude == 0) ? "" : <CircleMarker center={[clickPoint.latitude, clickPoint.longitude]} radius={12} color="transparent" fillColor="black" opacity={1}>
-                        <Popup class={style.popup}>
-                            <div class={style.popupDiv}>
-                                Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>Инфо<br/>
-                            </div>
-                        </Popup>
-                    </CircleMarker>
+                    (clickPoint.latitude == 0 && clickPoint.longitude == 0) ? "" : 
+                    <CustomCircleMarker pos={[locationPoint.latitude, locationPoint.longitude]} _color="red" popup_content="NEW"/>
                 }
-            
+                
                 <MapClickListen setLoc={setLocationPoint} setClick={setClickPoint}/>
             </MapContainer>
 
@@ -76,6 +61,33 @@ const Map = ({points, center}) => {
 };
 
 export default Map;
+
+const CustomIconMarker = ({pos, _color, popup_content}) => {
+    return (
+    <Marker icon={L_Icons.pub_icon} position={pos} radius={10} color="transparent" fillColor={_color} opacity={1}>
+        <Popup className={style.popup}>
+            <div className={style.popupDiv}>
+                {popup_content}
+            </div>
+        </Popup>
+    </Marker>
+    )
+};
+
+const CustomCircleMarker = ({pos, _color, popup_content}) => {
+    return (
+    <CircleMarker center={pos} radius={10} color="transparent" fillColor={_color} opacity={1}>
+        <Popup className={style.popup}>
+            <div className={style.popupDiv}>
+                {popup_content}
+            </div>
+        </Popup>
+    </CircleMarker>
+    )
+};
+
+
+
 
 // Получает гео пользователя
 const MapClickListen = ({setLoc, setClick}) => {
