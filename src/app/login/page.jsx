@@ -8,6 +8,7 @@ import {onChangeDefault, onChangeLogin} from "@/components/utils/formUtils/chang
 import Link from "next/link";
 import { useEffect, useMemo } from 'react';
 import axios from 'axios';
+import {useRouter} from "next/navigation";
 
 const Page = () => {
     const [auth, setAuth] = useState({})
@@ -18,7 +19,7 @@ const Page = () => {
         if (token) {
           axios.defaults.headers.common["Authorization"] = "Bearer " + token;
           localStorage.setItem('token',token);
-          console.log("Token applied");
+          route.push("/template")
         } else {
           delete axios.defaults.headers.common["Authorization"];
           localStorage.removeItem('token');
@@ -33,18 +34,27 @@ const Page = () => {
         [token]
     );
 
+    const route = useRouter()
 
 
     const send = async (e) => {
         e.preventDefault()
         await fetchSendAuth(auth)
+
+        if (token) {
+            route.push("/template")
+        }
     }
     const [fetchSendAuth, isLoading, error] = useFetching(async (query) => {
         let response = await Profile.sendAuth(query)
 
-        setToken(response.data)
-        console.log(response.data)
-        console.log(auth)
+        console.log(response)
+        if (response.status === 200) {
+            setToken(response.data)
+        } else {
+            setToken("")
+        }
+
     })
 
     return (
@@ -57,6 +67,9 @@ const Page = () => {
                     <InputForLogin text={"Пароль"} type={"password"} name={"password"} change={(event) => onChangeLogin(event, auth, setAuth)}/>
                 </div>
 
+                {
+                    error ? <p style={{color: "red", marginTop: "20px"}}>{error}</p> : null
+                }
                 <button className={style.button} onClick={send}>Авторизоваться</button>
                 <p className={style.aside}>У вас нет учётной записи? <Link href={"/signup"} className={style.Link}>Зарегистрируйтесь</Link></p>
             </div>
